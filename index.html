@@ -1,5 +1,6 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Apa 46</title>
+<script>if(/[?&]szoba=/.test(location.search)) document.documentElement.classList.add('joinmode');</script>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -83,7 +84,8 @@ button{font:inherit;color:inherit}
 .guitar{width:min(120px,17vw);top:0}
 .guitar svg{display:block;width:100%;height:auto;filter:drop-shadow(0 16px 12px rgba(60,35,15,.35))}
 .robot{width:min(230px,32vw);bottom:0;right:6%;transform:translateX(160%)}
-.robot svg{display:block;width:100%;height:auto;filter:drop-shadow(-10px 10px 10px rgba(60,35,15,.35))}
+.robot svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(-10px 10px 10px rgba(60,35,15,.35))}
+.robot .cannon{transform-box:view-box;transform-origin:70px 121px;transition:transform .16s ease-out}
 .hole{position:absolute;width:12px;height:12px;border-radius:50%;z-index:6;pointer-events:none;background:radial-gradient(circle,#140e0a 0 35%,#5a4330 45%,rgba(90,67,48,.0) 75%);transition:opacity 1s}
 .hole::after{content:"";position:absolute;inset:-16px;background:repeating-conic-gradient(from var(--r,0deg),rgba(45,30,20,.6) 0 2deg,transparent 2deg 41deg);-webkit-mask:radial-gradient(circle,#000 0 25%,transparent 70%);mask:radial-gradient(circle,#000 0 25%,transparent 70%)}
 .snd{position:absolute;left:max(16px,env(safe-area-inset-left,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:8;background:rgba(35,28,23,.85);color:var(--sand-hi);border:0;border-radius:2px;padding:7px 12px;font-family:var(--f-label);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:13px;cursor:pointer}
@@ -216,6 +218,78 @@ button{font:inherit;color:inherit}
 .res{font-family:var(--f-display);font-size:clamp(28px,4vw,44px);color:var(--rust)}
 .small{font-size:13.5px;color:var(--oil-2)}
 .empty{font-size:15px;color:var(--oil-2)}
+.free{background:rgba(251,245,230,.86);border-radius:3px;box-shadow:0 16px 34px rgba(90,60,25,.2);padding:22px;display:flex;flex-direction:column;gap:14px}
+.free h3,.pg h3{font-size:clamp(28px,4.4vw,46px);color:var(--oil)}
+.picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:640px){.picks{grid-template-columns:1fr}}
+.pick{display:flex;flex-direction:column;gap:8px;min-width:0}
+.pick label,.fld label{font-family:var(--f-label);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:var(--rust)}
+.inp{width:100%;padding:11px 13px;border:2px solid var(--oil);border-radius:2px;background:var(--paper);font:inherit;color:var(--oil)}
+.sugg{display:flex;flex-wrap:wrap;gap:6px;min-height:34px}
+.sugg .opt{font-size:14px;padding:5px 9px}
+.sugg .opt.sel{background:var(--oil);color:var(--sand-hi);border-color:var(--oil)}
+.sugg .opt.sel small{color:var(--fire)}
+.msg{font-family:var(--f-label);font-weight:600;font-size:16px;color:var(--rust)}
+
+/* ---------- PAGE 6 (party game) ---------- */
+#p6 .wrap{display:flex;flex-direction:column;gap:22px}
+#p6 h2{font-size:clamp(44px,8vw,100px)}
+.pg{display:flex;flex-direction:column;gap:18px}
+.pg .q{font-family:var(--f-label);font-weight:700;font-size:20px;letter-spacing:.02em}
+.pg .q em{font-style:normal;color:var(--rust)}
+.pg-panel,.joinmode .pg{background:rgba(251,245,230,.86);border-radius:3px;box-shadow:0 16px 34px rgba(90,60,25,.2);padding:22px;display:flex;flex-direction:column;gap:16px}
+.joinmode .pg .pg-panel{padding:0;background:none;box-shadow:none}
+.pg-rules{margin:0;padding-left:20px;max-width:66ch;color:var(--oil-2);display:flex;flex-direction:column;gap:6px}
+.fld{display:flex;flex-direction:column;gap:8px;max-width:560px}
+textarea.inp{resize:vertical;min-height:120px;line-height:1.45}
+.pg-k{font-family:var(--f-label);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:var(--rust)}
+.pg-join{display:flex;flex-wrap:wrap;gap:22px;align-items:center;background:var(--oil);color:var(--sand-hi);border-radius:3px;padding:22px;box-shadow:0 16px 34px rgba(90,60,25,.3)}
+.pg-qr{width:min(260px,100%);aspect-ratio:1;background:#fff;border-radius:3px;display:flex;align-items:center;justify-content:center;padding:6px}
+.pg-qr svg{width:100%;height:100%;display:block}
+.pg-qr .empty{color:var(--oil-2);text-align:center;padding:10px}
+.pg-jtxt{display:flex;flex-direction:column;gap:8px;min-width:0;flex:1 1 220px}
+.pg-jtxt .pg-k{color:var(--fire)}
+.pg-code{font-family:var(--f-mono);font-weight:600;font-size:clamp(48px,9vw,84px);letter-spacing:.12em;line-height:1;color:var(--paper)}
+.pg-link{color:var(--sand-hi);font-family:var(--f-label);font-weight:600;letter-spacing:.04em;font-size:16px;overflow-wrap:anywhere}
+.pg-jtxt .msg{color:var(--fire)}
+.pg-people{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.pg-people li{display:flex;align-items:center;gap:8px;padding:6px 6px 6px 12px;border:1.5px dashed var(--oil-2);border-radius:2px;background:var(--paper)}
+.pg-people li.ok{border-style:solid;border-color:var(--teal)}
+.pg-people li span{font-weight:600}
+.pg-people li small{font-family:var(--f-mono);font-size:11.5px;color:var(--rust);padding-right:6px}
+.pg-people li.ok small{color:var(--teal)}
+.pg-people li.empty{border:0;background:none;padding:0}
+.pg-x{border:0;background:none;cursor:pointer;font-size:20px;line-height:1;padding:2px 6px;color:var(--oil-2)}
+.pg-story{background:var(--oil);color:var(--paper);border-radius:3px;padding:20px 22px;display:flex;flex-direction:column;gap:8px}
+.pg-story .pg-k{color:var(--fire)}
+.pg-story p{font-size:clamp(20px,3.2vw,30px);line-height:1.3;font-weight:500;overflow-wrap:anywhere}
+.pg-mine{font-weight:600;color:var(--teal)}
+.pg .opt.sel{background:var(--oil);color:var(--sand-hi);border-color:var(--oil)}
+.pg-who .opt{font-size:17px;padding:10px 14px}
+.pg-rate{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:6px;max-width:560px}
+@media (max-width:480px){.pg-rate{grid-template-columns:repeat(5,minmax(0,1fr))}}
+.pg-rate .opt{text-align:center;font-family:var(--f-mono);font-weight:600;font-size:17px;padding:10px 0}
+.pg-reveal{display:flex;flex-direction:column;gap:10px}
+.pg-author{font-family:var(--f-display);font-size:clamp(34px,6vw,64px);line-height:1;color:var(--rust)}
+.pg-bars{list-style:none;margin:6px 0;padding:0;display:flex;flex-direction:column;gap:6px;max-width:640px}
+.pg-bars li{display:grid;grid-template-columns:minmax(0,9em) 1fr 2.2em;gap:10px;align-items:center}
+.pg-bars li span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}
+.pg-bars li i{display:block;height:14px;width:var(--w);min-width:3px;background:var(--teal-hi);border-radius:1px}
+.pg-bars li.top i{background:var(--rust)}
+.pg-bars li b{font-family:var(--f-mono);text-align:right}
+.pg-lines{display:flex;flex-direction:column;gap:4px;color:var(--oil-2)}
+.pg-gain{font-weight:600}
+.pg-gain b{color:var(--rust)}
+.pg-board{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;max-width:520px}
+.pg-board li{display:grid;grid-template-columns:2.4em minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:8px 12px;background:var(--paper);border-radius:2px}
+.pg-board li b{font-family:var(--f-mono);color:var(--oil-2)}
+.pg-board li span{font-weight:600;overflow-wrap:anywhere}
+.pg-board li em{font-style:normal;font-family:var(--f-mono);font-weight:600;font-size:18px}
+.pg-board.final li:first-child{background:var(--fire);font-size:20px}
+.joinmode,.joinmode body{scroll-snap-type:none}
+.joinmode .page:not(#p6),.joinmode .dots{display:none!important}
+.joinmode #p6{padding-block:28px 40px;justify-content:flex-start}
+.joinmode #p6 h2{font-size:clamp(40px,12vw,72px)}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -230,6 +304,7 @@ button{font:inherit;color:inherit}
   <a href="#p3"><span>IMAX</span></a>
   <a href="#p4"><span>Söröző</span></a>
   <a href="#p5"><span>Játék</span></a>
+  <a href="#p6"><span>Ki lehetett?</span></a>
 </nav>
 
 <!-- ============ 1 ============ -->
@@ -401,7 +476,27 @@ button{font:inherit;color:inherit}
     <p class="rules">Kösd össze a két színészt filmeken keresztül. Válassz egy filmet, amelyben a mostani színész játszott, aztán valakit a film szereplői közül. Ezt ismételd, amíg el nem jutsz a célszemélyig. Minden film egy lépés, és minél kevesebb lépésből érsz célba, annál jobb.</p>
     <div class="rounds" id="rounds"></div>
     <div class="board" id="board"><p class="empty">Filmadatbázis betöltése…</p></div>
+    <div class="free" id="free">
+      <span class="eyebrow">Ráadás a ráadáshoz · végtelen forduló</span>
+      <h3>Szabad játék</h3>
+      <p class="rules">Írj be bármelyik két színészt, és indulhat egy új forduló. Annyiszor játszhatod, ahányszor csak akarod. Elírást, ékezet nélküli nevet és vezetéknevet is felismer.</p>
+      <div class="picks">
+        <div class="pick"><label for="fa">Honnan</label><input class="inp" id="fa" type="search" placeholder="pl. Tom Hanks" autocomplete="off" disabled><div class="sugg" id="fa-s"></div></div>
+        <div class="pick"><label for="fb">Hová</label><input class="inp" id="fb" type="search" placeholder="pl. Meryl Streep" autocomplete="off" disabled><div class="sugg" id="fb-s"></div></div>
+      </div>
+      <div class="ctrls"><button class="btn pri" id="fgo" disabled>Indulhat a forduló →</button><button class="btn" id="frnd" disabled>Véletlen páros</button></div>
+      <p class="msg" id="fmsg" aria-live="polite"></p>
+    </div>
     <p class="small">Adatbázis: a Wikipédia amerikai filmlistái 1960-tól, a főszereplőkkel; magyar címek a Wikidatából. A keresőbe magyar és eredeti cím is írható. Ha egy film vagy mellékszereplő hiányzik, az nem a te hibád.</p>
+  </div>
+</section>
+
+<!-- ============ 6 ============ -->
+<section class="page tall" id="p6">
+  <div class="wrap">
+    <span class="eyebrow">Ráadás · társasjáték telefonnal</span>
+    <h2>Ki lehetett?</h2>
+    <div class="pg" id="pg"><p class="empty">Betöltés…</p></div>
   </div>
 </section>
 
@@ -481,19 +576,20 @@ const GUIT=(body,pick)=>`<svg viewBox="0 0 120 340"><rect x="54" y="20" width="1
 <path d="M30 268c8 30 52 30 60 0" fill="none" stroke="#fff" stroke-opacity=".18" stroke-width="5"/>
 <rect x="44" y="236" width="32" height="9" rx="2" fill="${pick}"/><rect x="44" y="258" width="32" height="9" rx="2" fill="${pick}"/><rect x="42" y="286" width="36" height="6" fill="#ddd"/>
 <g stroke="#f4ead0" stroke-width=".7" opacity=".85"><path d="M56 20v272"/><path d="M59 20v272"/><path d="M61 20v272"/><path d="M64 20v272"/></g></svg>`;
+// Facing left (toward the stage); the cannon pivots at its shoulder (70,121) and its muzzle tip sits 70 units out along -x.
 const ROBOT=`<svg viewBox="0 0 230 330">
-<rect x="70" y="0" width="4" height="26" fill="#3A2F27"/><circle cx="72" cy="0" r="5" fill="#FFB43A"/>
-<rect x="44" y="22" width="96" height="70" rx="8" fill="#8f9a9a"/><rect x="44" y="22" width="96" height="16" rx="8" fill="#b8c2c0"/>
-<rect x="54" y="48" width="76" height="16" rx="3" fill="#231C17"/><rect class="visor" x="58" y="52" width="68" height="8" rx="2" fill="#FFB43A"/>
-<g fill="#5d6665"><rect x="58" y="72" width="8" height="10"/><rect x="72" y="72" width="8" height="10"/><rect x="86" y="72" width="8" height="10"/><rect x="100" y="72" width="8" height="10"/><rect x="114" y="72" width="8" height="10"/></g>
-<rect x="80" y="92" width="24" height="12" fill="#5d6665"/>
-<path d="M28 104h128l-10 110H40z" fill="#7a5a44"/><path d="M28 104h128l-3 22H31z" fill="#9A3F1A"/>
-<g fill="#3a2a20"><circle cx="40" cy="134" r="3"/><circle cx="144" cy="134" r="3"/><circle cx="46" cy="200" r="3"/><circle cx="138" cy="200" r="3"/></g>
-<rect x="66" y="140" width="52" height="40" rx="3" fill="#3A2F27"/><text x="92" y="167" text-anchor="middle" font-family="Saira Stencil One,Impact,sans-serif" font-size="22" fill="#FFB43A">46</text>
-<rect x="0" y="108" width="34" height="80" rx="6" fill="#8f9a9a"/><rect x="-2" y="186" width="38" height="20" rx="4" fill="#5d6665"/>
-<g class="cannon"><rect x="150" y="104" width="46" height="34" rx="5" fill="#8f9a9a"/><rect x="190" y="112" width="40" height="18" rx="3" fill="#3A2F27"/><rect x="222" y="109" width="8" height="24" fill="#231C17"/></g>
-<rect x="56" y="214" width="30" height="96" fill="#5d6665"/><rect x="100" y="214" width="30" height="96" fill="#5d6665"/>
-<rect x="48" y="304" width="44" height="22" rx="3" fill="#3A2F27"/><rect x="94" y="304" width="44" height="22" rx="3" fill="#3A2F27"/>
+<rect x="156" y="0" width="4" height="26" fill="#3A2F27"/><circle cx="158" cy="0" r="5" fill="#FFB43A"/>
+<rect x="90" y="22" width="96" height="70" rx="8" fill="#8f9a9a"/><rect x="90" y="22" width="96" height="16" rx="8" fill="#b8c2c0"/>
+<rect x="100" y="48" width="76" height="16" rx="3" fill="#231C17"/><rect class="visor" x="104" y="52" width="68" height="8" rx="2" fill="#FFB43A"/>
+<g fill="#5d6665"><rect x="164" y="72" width="8" height="10"/><rect x="150" y="72" width="8" height="10"/><rect x="136" y="72" width="8" height="10"/><rect x="122" y="72" width="8" height="10"/><rect x="108" y="72" width="8" height="10"/></g>
+<rect x="126" y="92" width="24" height="12" fill="#5d6665"/>
+<path d="M74 104h128l-12 110H84z" fill="#7a5a44"/><path d="M74 104h128l-3 22H77z" fill="#9A3F1A"/>
+<g fill="#3a2a20"><circle cx="190" cy="134" r="3"/><circle cx="86" cy="134" r="3"/><circle cx="184" cy="200" r="3"/><circle cx="92" cy="200" r="3"/></g>
+<rect x="112" y="140" width="52" height="40" rx="3" fill="#3A2F27"/><text x="138" y="167" text-anchor="middle" font-family="Saira Stencil One,Impact,sans-serif" font-size="22" fill="#FFB43A">46</text>
+<rect x="196" y="108" width="34" height="80" rx="6" fill="#8f9a9a"/><rect x="194" y="186" width="36" height="20" rx="4" fill="#5d6665"/>
+<rect x="144" y="214" width="30" height="96" fill="#5d6665"/><rect x="100" y="214" width="30" height="96" fill="#5d6665"/>
+<rect x="138" y="304" width="44" height="22" rx="3" fill="#3A2F27"/><rect x="92" y="304" width="44" height="22" rx="3" fill="#3A2F27"/>
+<g class="cannon"><rect x="34" y="104" width="46" height="34" rx="5" fill="#8f9a9a"/><rect x="0" y="112" width="40" height="18" rx="3" fill="#3A2F27"/><rect x="0" y="109" width="8" height="24" fill="#231C17"/><circle cx="70" cy="121" r="6" fill="#5d6665"/></g>
 </svg>`;
 
 let parts=[], running=false, idleDust=[];
@@ -551,6 +647,16 @@ async function party(){
   // firing
   const t0=performance.now(); const fireDur=RM?1500:3600;
   const holes=[];
+  // robot: swing the cannon onto the target first, then fire straight out of the muzzle
+  const cannon=rb.querySelector('.cannon'); let robotNext=2050;
+  function robotShot(){
+    const s=rb.querySelector('svg').getBoundingClientRect(),b=P1.getBoundingClientRect(),k=s.width/230;
+    const px=s.left-b.left+70*k, py=s.top-b.top+121*k;
+    const x2=W*(.1+Math.random()*.5), y2=H*(.1+Math.random()*.45), a=Math.atan2(y2-py,x2-px);
+    let deg=a*180/Math.PI+180; if(deg>180) deg-=360;
+    cannon.style.transform=`rotate(${deg}deg)`;
+    setTimeout(()=>{const x1=px+Math.cos(a)*70*k,y1=py+Math.sin(a)*70*k;beams.push({x1,y1,x2,y2,life:1});laser();setTimeout(()=>explode(x2,y2,80),120);},180);
+  }
   await wait(520);
   await new Promise(res=>{
     function fire(){
@@ -569,7 +675,7 @@ async function party(){
         if(holes.length<16 && Math.random()<.12){const h=document.createElement('div');h.className='hole';h.style.left=(tx-6)+'px';h.style.top=(ty-6)+'px';h.style.setProperty('--r',(Math.random()*40|0)+'deg');P1.appendChild(h);holes.push(h);}
       }});
       // robot shots
-      if(t>1700 && Math.random()<.035){const c=rb.querySelector('.cannon').getBoundingClientRect(),b=P1.getBoundingClientRect();const x1=c.right-b.left,y1=c.top-b.top+c.height/2;const x2=W*(.1+Math.random()*.5),y2=H*(.1+Math.random()*.45);beams.push({x1,y1,x2,y2,life:1});laser();setTimeout(()=>explode(x2,y2,80),120);}
+      if(t>robotNext){robotNext=t+650+Math.random()*500;robotShot();}
       // guitar notes
       if(Math.random()<.12){const g=gl[Math.random()*2|0],r=rel(g);spawn({x:r.x+r.w*.5,y:r.y+r.h*.7,vx:(Math.random()-.5)*2,vy:-1.5-Math.random(),kind:'note',t:Math.random()<.5?'♪':'♫',decay:.012});}
       setTimeout(fire,RM?160:85);
@@ -578,7 +684,7 @@ async function party(){
   });
   explode(W*.5,H*.42,110); if(!RM){shaker.classList.remove('shake');void shaker.offsetWidth;shaker.classList.add('shake');} chord(.05);
   await wait(900);
-  guns.forEach(g=>g.classList.remove('in'));
+  guns.forEach(g=>g.classList.remove('in')); cannon.style.transform='';
   gl.forEach((g,i)=>g.animate([{opacity:1},{transform:`translate(${i?200:-200}px,-500px) rotate(${i?300:-300}deg)`,opacity:0}],{duration:800,easing:'ease-in',fill:'forwards'}));
   rb.animate([{transform:'translateX(0)'},{transform:'translateX(170%)'}],{duration:900,easing:'ease-in',fill:'forwards'});
   await wait(1800);
@@ -620,15 +726,25 @@ function initGame(){
   const D=window.HW;
   if(!D){board.innerHTML='<p class="empty">A filmadatbázis nem töltődött be. Frissítsd az oldalt.</p>';return;}
   const N=D.a, F=D.f, A2F=N.map(()=>[]);
+  const fold=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+  // The scraped cast lists contain credit fragments ("(narrator)", "writer)") and spelling variants
+  // ("Andy Garcia" / "Andy García"): drop the former, merge the latter into the best-known spelling.
+  const NK=N.map(n=>fold(n).replace(/[^a-z0-9]/g,''));
+  const junk=N.map((n,i)=>/^[(\)&.?[]/.test(n)||(/\)$/.test(n)&&!n.includes('('))||/\((teleplay|writers?|screen\w*)\)/i.test(n)||NK[i].length<3||/^(the|of|story)$/i.test(n));
+  const cnt=N.map(()=>0); F.forEach(f=>f[2].forEach(a=>cnt[a]++));
+  const canon=N.map((_,i)=>i), byKey=Object.create(null);
+  N.forEach((n,i)=>{if(junk[i]) return; const o=byKey[NK[i]]; if(o==null||cnt[i]>cnt[o]||(cnt[i]===cnt[o]&&/[^\x00-\x7f]/.test(n))) byKey[NK[i]]=i;});
+  N.forEach((_,i)=>{if(!junk[i]) canon[i]=byKey[NK[i]];});
+  F.forEach(f=>{f[2]=[...new Set(f[2].filter(a=>!junk[a]).map(a=>canon[a]))];});
   F.forEach((f,i)=>f[2].forEach(a=>A2F[a].push(i)));
-  const id=Object.create(null); N.forEach((n,i)=>id[n]=i);
+  const id=Object.create(null); N.forEach((n,i)=>{if(!junk[i]&&canon[i]===i) id[n]=i;});
   function bfs(s,t){const prev=new Map([[s,null]]),q=[s];for(let h=0;h<q.length;h++){const a=q[h];if(a===t)break;for(const fi of A2F[a])for(const b of F[fi][2])if(!prev.has(b)){prev.set(b,[a,fi]);q.push(b);}}
     if(!prev.has(t))return null;const p=[];let c=t;while(prev.get(c)){const[a,fi]=prev.get(c);p.unshift([fi,c]);c=a;}return p;}
-  const R=PAIRS.map(([s,t])=>{const S=id[s],T=id[t];const best=bfs(S,T);return {S,T,chain:[S],done:false,gave:false,best,par:best?best.length:null,film:null};});
+  const mkRound=(S,T)=>{const best=bfs(S,T);return {S,T,chain:[S],done:false,gave:false,best,par:best?best.length:null,film:null};};
+  const R=PAIRS.map(([s,t])=>mkRound(id[s],id[t])), BASE=R.length;
   let cur=0, q='';
   const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const T=f=>f[3]||f[0];
-  const fold=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
   const KEY=F.map(f=>fold(f[0]+' | '+(f[3]||'')));
   const chipF=f=>`<span class="chip film">${esc(T(f))} <small>${f[1]}</small></span>`;
   const moves=r=>(r.chain.length-1)/2;
@@ -647,10 +763,11 @@ function initGame(){
       let verdict = r.gave?'Feladva. Íme a legrövidebb út:':(m<=r.par?'Tökéletes! Ennél rövidebb út nincs.':(m===r.par+1?'Szép munka, egy lépéssel a legjobb mögött.':'Célba értél!'));
       panel=`<p class="res">${verdict}</p>`;
       if(r.gave||m>r.par) panel+=`<div class="road">${[`<span class="chip start">${esc(N[r.S])}</span>`].concat(r.best.map(([fi,a])=>`<span class="arrow">→</span>${chipF(F[fi])}<span class="arrow">→</span><span class="chip${a===r.T?' target hit':''}">${esc(N[a])}</span>`)).join('')}</div>`;
-      const all=R.every(x=>x.done);
-      if(all){const tm=R.reduce((s,x)=>s+(x.gave?0:moves(x)),0),tp=R.reduce((s,x)=>s+x.par,0),gv=R.filter(x=>x.gave).length;
+      const B=R.slice(0,BASE);
+      if(cur<BASE&&B.every(x=>x.done)){const tm=B.reduce((s,x)=>s+(x.gave?0:moves(x)),0),tp=B.reduce((s,x)=>s+x.par,0),gv=B.filter(x=>x.gave).length;
         panel+=`<p class="q">Összesen: <em>${tm} lépés</em>, a legrövidebb utak összege ${tp}${gv?`, ${gv} feladott forduló`:''}. Boldog születésnapot, Apa!</p>`;}
-      panel+=`<div class="ctrls">${cur<2?`<button class="btn pri" id="nx">Következő forduló →</button>`:''}<button class="btn" id="rs">Forduló újra</button></div>`;
+      if(cur>=R.length-1) panel+=`<p class="q">Jöhet még egy? Válassz két színészt lent, a <em>Szabad játék</em> mezőiben.</p>`;
+      panel+=`<div class="ctrls">${cur<R.length-1?`<button class="btn pri" id="nx">Következő forduló →</button>`:''}${cur>=R.length-1?`<button class="btn pri" id="fr">Új páros választása ↓</button>`:''}<button class="btn" id="rs">Forduló újra</button></div>`;
     } else if(r.film==null){
       const used=new Set(r.chain.filter((_,i)=>i%2));
       const qq=fold(q.trim());
@@ -677,13 +794,332 @@ function initGame(){
     if(g('un')) g('un').onclick=()=>{if(r.film!=null) r.film=null; else if(r.chain.length>1) r.chain.splice(-2,2); render();};
     if(g('gv')) g('gv').onclick=()=>{r.gave=true;r.done=true;r.film=null;render();};
     if(g('nx')) g('nx').onclick=()=>{cur++;q='';render();};
+    if(g('fr')) g('fr').onclick=()=>{freeEl.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});setTimeout(()=>fa.focus({preventScroll:true}),RM?0:450);};
     if(g('rs')) g('rs').onclick=()=>{Object.assign(r,{chain:[r.S],done:false,gave:false,film:null});q='';render();};
   }
   render();
+
+  /* ---- free play: any two actors, as many rounds as you like ---- */
+  const freeEl=document.getElementById('free'), fa=document.getElementById('fa'), fb=document.getElementById('fb'),
+        fgo=document.getElementById('fgo'), frnd=document.getElementById('frnd'), fmsg=document.getElementById('fmsg');
+  const ACT=N.map((_,i)=>i).filter(i=>!junk[i]&&canon[i]===i&&A2F[i].length);
+  const TOK=N.map(n=>fold(n).split(/[^a-z0-9]+/).filter(Boolean));
+  function lev(a,b,max){if(Math.abs(a.length-b.length)>max) return max+1; let p=[...Array(b.length+1).keys()];
+    for(let i=1;i<=a.length;i++){const c=[i];let lo=i;for(let j=1;j<=b.length;j++){c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));if(c[j]<lo)lo=c[j];}if(lo>max) return max+1;p=c;}
+    return p[b.length];}
+  // Best guesses for what the user typed: exact name, then word prefixes ("hanks", "tom ha"), then typos.
+  function lookup(txt){
+    const k=fold(txt).replace(/[^a-z0-9]/g,''), qt=fold(txt).split(/[^a-z0-9]+/).filter(Boolean);
+    if(k.length<2) return [];
+    const sc=[];
+    for(const i of ACT){
+      let s=-1;
+      if(NK[i]===k) s=1e6;
+      else if(qt.every(t=>TOK[i].some(w=>w.startsWith(t)))) s=1e4+(TOK[i][TOK[i].length-1].startsWith(qt[qt.length-1])?5e3:0);
+      else if(k.length>=4){
+        const tol=t=>t.length>=7?2:t.length>=4?1:0;
+        let d=lev(k,NK[i],tol(k));
+        if(d>tol(k)){d=0;for(const t of qt){let m=t.length+1;for(const w of TOK[i]) m=Math.min(m,w.startsWith(t)?0:lev(t,w,tol(t)));if(m>tol(t)){d=-1;break;}d+=m;}}
+        if(d>=0) s=5e3-d*1e3;}
+      if(s>=0) sc.push([s+A2F[i].length,i]);
+    }
+    return sc.sort((a,b)=>b[0]-a[0]).slice(0,6).map(x=>x[1]);
+  }
+  const sel={fa:null,fb:null};
+  function sugg(inp){
+    const box=document.getElementById(inp.id+'-s'), hits=lookup(inp.value);
+    if(!hits.includes(sel[inp.id])) sel[inp.id]=hits.length?hits[0]:null;
+    box.innerHTML=inp.value.trim().length<2?'':hits.length?hits.map(i=>`<button class="opt${i===sel[inp.id]?' sel':''}" data-p="${i}">${esc(N[i])}<small>${A2F[i].length} film</small></button>`).join(''):'<span class="empty">Nem találom ezt a nevet az adatbázisban.</span>';
+    box.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>{sel[inp.id]=+b.dataset.p;inp.value=N[sel[inp.id]];sugg(inp);});
+    state();}
+  function state(){fgo.disabled=sel.fa==null||sel.fb==null; fmsg.textContent=sel.fa!=null&&sel.fa===sel.fb?'Két különböző színész kell.':'';}
+  function start(S,T){
+    if(S===T){fmsg.textContent='Két különböző színész kell.';return;}
+    const r=mkRound(S,T);
+    if(!r.best){fmsg.textContent=`${N[S]} és ${N[T]} között nincs filmes kapcsolat ebben az adatbázisban. Próbálj másik párost.`;return;}
+    R.push(r); cur=R.length-1; q=''; fmsg.textContent=''; render();
+    board.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'});}
+  [fa,fb].forEach(inp=>{inp.disabled=false;inp.oninput=()=>sugg(inp);inp.onkeydown=e=>{if(e.key==='Enter'&&!fgo.disabled) fgo.click();};});
+  fgo.disabled=true; frnd.disabled=false;
+  fgo.onclick=()=>start(sel.fa,sel.fb);
+  const FAMOUS=ACT.filter(i=>A2F[i].length>=20);
+  frnd.onclick=()=>{for(let n=0;n<40;n++){const S=FAMOUS[Math.random()*FAMOUS.length|0],T=FAMOUS[Math.random()*FAMOUS.length|0];const b=S!==T&&bfs(S,T);
+      if(b&&b.length>=2){fa.value=N[S];fb.value=N[T];sel.fa=S;sel.fb=T;sugg(fa);sugg(fb);start(S,T);return;}}};
 }
-if(window.HW) initGame(); else { const s=document.getElementById('hwdata'); (s||window).addEventListener('load',initGame,{once:true}); }
+// phones that joined the party game (?szoba=…) don't need the 1.3 MB film database
+if(!/[?&]szoba=/.test(location.search)){const s=document.createElement('script');s.src='movies.js';s.onload=s.onerror=()=>initGame();document.body.appendChild(s);}
 })();
 </script>
-<script id="hwdata" src="movies.js"></script>
+<script>
+/* ---------- page 6: "Ki lehetett?" phone party game on Firebase Realtime Database ----------
+   The page that opens a room is the host (big screen: QR code, story, results, controls).
+   Phones scan the QR and get the same file with ?szoba=CODE, which shows only the player view. */
+(function(){
+"use strict";
+// Realtime Database URL from the Firebase console (Realtime Database → Data, the URL above the tree), e.g.
+// "https://apa46-default-rtdb.europe-west1.firebasedatabase.app". If left empty, the host page asks for it
+// and hands it to the phones inside the QR link.
+const FIREBASE_DB_URL='';
+const FB_SDK='https://www.gstatic.com/firebasejs/12.12.0/', QR_LIB='https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.js';
+// Scoring per story: the most-voted player(s) get up to PTS_VOTES, scaled by their share of the votes;
+// the author gets up to PTS_GUESS if their own pick is the most-voted one (same scaling),
+// plus the average 1–10 excitement rating of the others, scaled to PTS_STORY.
+const PTS_VOTES=5, PTS_GUESS=10, PTS_STORY=10, MIN_PLAYERS=3, NAME_MAX=24, STORY_MAX=300;
+
+const QS=new URLSearchParams(location.search);
+const JOIN=(QS.get('szoba')||'').toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,8);
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const el=document.getElementById('pg');
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const store={get(k){try{return JSON.parse(localStorage.getItem(k));}catch(e){return null;}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}},del(k){try{localStorage.removeItem(k);}catch(e){}}};
+const okUrl=u=>/^https:\/\/[a-z0-9.-]+\.(firebaseio\.com|firebasedatabase\.app)\/?$/i.test(u)||/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?\/?\?ns=[\w-]+$/.test(u);
+const cleanUrl=u=>String(u||'').trim().replace(/\/+$/,'');
+const rid=n=>{const A='ABCDEFGHJKLMNPQRSTUVWXYZ23456789',b=new Uint8Array(n);crypto.getRandomValues(b);return [...b].map(x=>A[x%A.length]).join('');};
+let dbUrl=cleanUrl(FIREBASE_DB_URL)||(okUrl(cleanUrl(QS.get('db')))?cleanUrl(QS.get('db')):'')||store.get('pg:db')||'';
+
+/* ---- firebase ---- */
+let FB=null, code='', room=null, unsub=null, loaded=false;
+async function connect(){
+  if(FB) return FB;
+  const [app,d]=await Promise.all([import(FB_SDK+'firebase-app.js'),import(FB_SDK+'firebase-database.js')]);
+  const db=d.getDatabase(app.initializeApp({databaseURL:dbUrl},'kilehetett'));
+  return FB=Object.assign({},d,{db});
+}
+const R=p=>FB.ref(FB.db,'rooms/'+code+(p?'/'+p:''));
+function watch(c){
+  code=c; loaded=false; if(unsub) unsub();
+  unsub=FB.onValue(R(),s=>{room=s.val();loaded=true;render();},e=>oops(e));
+}
+function oops(e){console.error(e);lastKey='';el.innerHTML=`<p class="msg">Nem sikerült elérni az adatbázist${e&&e.code?` (${esc(e.code)})`:''}. Ellenőrizd az adatbázis címét és a szabályokat (lásd a beállítási leírást).</p>`;}
+const loadQR=()=>window.qrcode?Promise.resolve():new Promise((res,rej)=>{const s=document.createElement('script');s.src=QR_LIB;s.onload=res;s.onerror=rej;document.head.appendChild(s);});
+
+/* ---- room helpers ---- */
+const P=()=>(room&&room.players)||{};
+const ids=()=>Object.keys(P()).sort((a,b)=>(P()[a].at||0)-(P()[b].at||0)||(a<b?-1:1));
+const nm=p=>P()[p]?P()[p].name:'(kilépett)';
+const order=()=>(room&&room.order)||[];
+const votes=i=>(room&&room.votes&&room.votes[i])||{};
+const result=i=>room&&room.results&&room.results[i];
+function scores(){const t={};ids().forEach(p=>t[p]=0);
+  Object.values((room&&room.results)||{}).filter(Boolean).forEach(r=>Object.entries(r.pts||{}).forEach(([p,v])=>{if(p in t) t[p]+=v;}));
+  return t;}
+function joinUrl(){const u=new URL(location.href);u.search='';u.hash='';u.searchParams.set('szoba',code);if(!cleanUrl(FIREBASE_DB_URL)) u.searchParams.set('db',dbUrl);return u.toString();}
+
+function tallyRound(i){
+  const author=order()[i], pl=ids(), V=votes(i), tally={}, rates=[];
+  pl.forEach(p=>tally[p]=0);
+  let voters=0, pick=null;
+  Object.entries(V).forEach(([v,x])=>{if(!x||!(v in P())) return; voters++;
+    if(x.who in tally) tally[x.who]++;
+    if(v===author) pick=x.who; else if(x.rate>=1&&x.rate<=10) rates.push(+x.rate);});
+  const max=Math.max(0,...Object.values(tally)), top=max?pl.filter(p=>tally[p]===max):[], pts={};
+  // share of all players, not just of those who voted, so closing the vote early doesn't inflate points
+  const share=pl.length?max/pl.length:0;
+  const add=(p,v)=>{if(v>0&&p in tally) pts[p]=(pts[p]||0)+v;};
+  const won=top.length?Math.max(1,Math.round(PTS_VOTES*share)):0;
+  top.forEach(p=>add(p,won));
+  const guess=pick!=null&&top.includes(pick)?Math.max(1,Math.round(PTS_GUESS*share)):0;
+  const avg=rates.length?rates.reduce((a,b)=>a+b,0)/rates.length:0, story=Math.round(avg/10*PTS_STORY);
+  add(author,guess); add(author,story);
+  return {author,tally,top,voters,won,pick,guess,avg:Math.round(avg*10)/10,story,pts};
+}
+
+/* ---- shared pieces ---- */
+const pts=n=>`${n} pont`;
+function storyCard(i){const a=order()[i],s=P()[a];
+  return `<div class="pg-story"><span class="pg-k">Sztori · ${i+1}/${order().length}</span><p>„${esc(s&&s.story||'(a szerző kilépett)')}”</p></div>`;}
+function boardHtml(final){
+  const sc=scores(), list=ids().sort((a,b)=>sc[b]-sc[a]);
+  let rank=0,prev=null;
+  return `<ol class="pg-board${final?' final':''}">${list.map((p,k)=>{if(sc[p]!==prev){rank=k+1;prev=sc[p];}
+    return `<li><b>${rank}.</b><span>${esc(nm(p))}</span><em>${sc[p]}</em></li>`;}).join('')}</ol>`;}
+function resultHtml(i){
+  const r=result(i); if(!r) return '<p class="empty">Számolás…</p>';
+  const T=r.tally||{}, max=Math.max(1,...Object.values(T)), top=r.top||[], P2=r.pts||{};
+  const bars=Object.keys(T).filter(p=>p in P()).sort((a,b)=>T[b]-T[a]).map(p=>
+    `<li class="${top.includes(p)?'top':''}"><span>${esc(nm(p))}</span><i style="--w:${T[p]/max*100}%"></i><b>${T[p]}</b></li>`).join('');
+  const lines=[];
+  if(top.length) lines.push(`${top.map(p=>`<strong>${esc(nm(p))}</strong>`).join(' és ')} kapta a legtöbb szavazatot (${T[top[0]]}/${r.voters} szavazat): +${pts(r.won)}${top.length>1?' fejenként':''}.`);
+  else lines.push('Senki nem szavazott.');
+  lines.push(r.pick!=null?(r.guess?`A szerző is rá tippelt: +${pts(r.guess)}.`:`A szerző tippje (${esc(nm(r.pick))}) nem nyert.`):'A szerző nem tippelt.');
+  lines.push(r.avg?`Izgalmi átlag: <strong>${String(r.avg).replace('.',',')}</strong> / 10, ezért +${pts(r.story)} a szerzőnek.`:'Izgalmi értékelés nem érkezett.');
+  return `<div class="pg-reveal"><p class="pg-k">A sztorit írta</p><p class="pg-author">${esc(nm(r.author))}</p>
+    <ul class="pg-bars">${bars}</ul><div class="pg-lines">${lines.map(l=>`<p>${l}</p>`).join('')}</div>
+    <p class="pg-k">Ebben a körben</p><p class="pg-gain">${Object.entries(P2).filter(([p])=>p in P()).sort((a,b)=>b[1]-a[1]).map(([p,v])=>`${esc(nm(p))} <b>+${v}</b>`).join(' · ')||'senki nem kapott pontot'}</p></div>`;
+}
+
+/* ---- rendering ---- */
+let lastKey='';
+function show(key,html,bind){if(key===lastKey) return false; lastKey=key; el.innerHTML=html; if(bind) bind(); return true;}
+function live(id,html){const n=document.getElementById(id); if(n&&n.innerHTML!==html) n.innerHTML=html;}
+const $=id=>document.getElementById(id);
+function render(){ JOIN?renderPlayer():renderHost(); }
+
+/* ======== HOST ======== */
+let qrSvg='', autoRevealed=-1;
+function intro(note){
+  const saved=store.get('pg:host');
+  show('intro'+(note||''),`
+    <p class="rules">Mindenki a saját telefonján játszik. Beolvassátok a QR-kódot, mindenki megadja a nevét, és leír egy eseményt, ami a jelenlévők közül valakivel megtörtént, vagy simán kinézitek belőle. A gép kisorsolja a sztorikat, és mindenki megszavazza, ki lehetett az, aztán azt is, mennyire volt izgalmas.</p>
+    <ul class="pg-rules">
+      <li>Akire a legtöbb szavazat esik: legfeljebb <b>${PTS_VOTES} pont</b> körönként, minél egyöntetűbb a szavazás, annál több.</li>
+      <li>A sztori szerzője: legfeljebb <b>${PTS_GUESS} pont</b>, ha az ő tippje is a nyertesre szólt, és legfeljebb <b>${PTS_STORY} pont</b> a többiek 1–10-es izgalmi pontszámának átlaga alapján.</li>
+      <li>A végén összesítünk. Legalább ${MIN_PLAYERS} játékos kell.</li>
+    </ul>
+    ${cleanUrl(FIREBASE_DB_URL)?'':`<div class="fld"><label for="pgdb">Firebase Realtime Database címe</label><input class="inp" id="pgdb" type="url" inputmode="url" placeholder="https://valami-default-rtdb.europe-west1.firebasedatabase.app" value="${esc(dbUrl)}" autocomplete="off"></div>`}
+    <div class="ctrls"><button class="btn pri" id="pgnew">Szoba nyitása</button>${saved&&saved.code?`<button class="btn" id="pgold">Vissza a(z) ${esc(saved.code)} szobába</button>`:''}</div>
+    <p class="msg" id="pgmsg">${esc(note||'')}</p>`,()=>{
+      $('pgnew').onclick=()=>openRoom(null);
+      if($('pgold')) $('pgold').onclick=()=>openRoom(saved);
+    });
+}
+async function openRoom(saved){
+  if($('pgdb')) dbUrl=cleanUrl($('pgdb').value);
+  if(saved&&saved.db&&!cleanUrl(FIREBASE_DB_URL)) dbUrl=saved.db;
+  if(!okUrl(dbUrl)){$('pgmsg').textContent='Add meg a Realtime Database címét (…firebaseio.com vagy …firebasedatabase.app).';return;}
+  store.set('pg:db',dbUrl);
+  $('pgmsg').textContent='Csatlakozás…';
+  try{
+    await connect();
+    if(saved){
+      code=saved.code;
+      const s=await FB.get(R());
+      if(!s.exists()){store.del('pg:host');lastKey='';intro('Ez a szoba már nem létezik. Nyiss újat.');return;}
+    } else {
+      for(let n=0;;n++){code=rid(4); if(!(await FB.get(R())).exists()||n>8) break;}
+      await FB.set(R(),{phase:'lobby',created:FB.serverTimestamp()});
+      store.set('pg:host',{code,db:dbUrl});
+    }
+    qrSvg='';
+    loadQR().then(()=>{const q=qrcode(0,'M');q.addData(joinUrl());q.make();qrSvg=q.createSvgTag({cellSize:4,margin:4,scalable:true,alt:'QR-kód a csatlakozáshoz'});lastKey='';render();}).catch(()=>{qrSvg='-';lastKey='';render();});
+    watch(code);
+  }catch(e){oops(e);}
+}
+function joinBox(big){
+  const u=joinUrl();
+  return `<div class="pg-join${big?' big':''}">
+    <div class="pg-qr">${qrSvg&&qrSvg!=='-'?qrSvg:`<span class="empty">${qrSvg?'A QR-kód nem töltődött be, használjátok a linket.':'QR-kód…'}</span>`}</div>
+    <div class="pg-jtxt"><span class="pg-k">Szobakód</span><span class="pg-code">${esc(code)}</span>
+      <a class="pg-link" href="${esc(u)}" target="_blank" rel="noopener">Megnyitás új lapon (én is játszom) ↗</a>
+      ${location.protocol==='file:'?'<p class="msg">Figyelem: az oldal most fájlból fut, ezért a telefonok nem érik el. Tedd fel webre (pl. GitHub Pages), és onnan nyisd meg.</p>':''}</div></div>`;
+}
+function renderHost(){
+  if(!code){intro();return;}
+  if(!loaded) return;
+  if(!room){store.del('pg:host');code='';if(unsub)unsub();lastKey='';intro('A szoba megszűnt.');return;}
+  const pl=ids(), ph=room.phase, i=room.round|0;
+  if(ph==='lobby'){
+    const ready=pl.filter(p=>P()[p].story), can=pl.length>=MIN_PLAYERS&&ready.length===pl.length;
+    show('h-lobby'+qrSvg.length,`${joinBox(true)}
+      <div class="pg-panel"><p class="q">Beszállók: <em id="pgcnt"></em></p><ul class="pg-people" id="pgppl"></ul>
+      <div class="ctrls"><button class="btn pri" id="pgstart" disabled>Sorsolás indul →</button></div><p class="small" id="pghint"></p></div>`,()=>{
+        $('pgstart').onclick=start;
+        $('pgppl').onclick=e=>{const b=e.target.closest('[data-kick]'); if(b&&confirm(`Kiveszed ${nm(b.dataset.kick)} játékost?`)) FB.remove(R('players/'+b.dataset.kick));};
+      });
+    live('pgcnt',`${pl.length} fő, ${ready.length} sztori kész`);
+    live('pgppl',pl.map(p=>`<li class="${P()[p].story?'ok':''}"><span>${esc(P()[p].name)}</span><small>${P()[p].story?'sztori kész ✓':'sztorit ír…'}</small><button class="pg-x" data-kick="${p}" aria-label="${esc(P()[p].name)} eltávolítása">×</button></li>`).join('')||'<li class="empty">Még senki. Olvassátok be a QR-kódot!</li>');
+    $('pgstart').disabled=!can;
+    live('pghint',can?'Mindenki kész. Ha senki más nem jön, indulhat a sorsolás.':pl.length<MIN_PLAYERS?`Legalább ${MIN_PLAYERS} játékos kell.`:'Várunk, amíg mindenki leadja a sztoriját.');
+  } else if(ph==='vote'){
+    const V=votes(i), done=pl.filter(p=>V[p]);
+    show('h-vote'+i,`<div class="pg-panel">${storyCard(i)}<p class="q">Ki lehetett? Mindenki a saját telefonján szavaz.</p>
+      <ul class="pg-people" id="pgvt"></ul><div class="ctrls"><button class="btn" id="pgclose">Szavazás lezárása most</button></div></div>
+      <p class="small">Szobakód: <b>${esc(code)}</b></p>`,()=>{$('pgclose').onclick=()=>{if(confirm('Lezárod a szavazást? Aki még nem szavazott, kimarad ebből a körből.')) reveal(i);};});
+    live('pgvt',pl.map(p=>`<li class="${V[p]?'ok':''}"><span>${esc(P()[p].name)}</span><small>${V[p]?'szavazott ✓':'gondolkodik…'}</small></li>`).join(''));
+    if(pl.length&&done.length===pl.length&&autoRevealed!==i){autoRevealed=i;reveal(i);}
+  } else if(ph==='reveal'){
+    const last=i>=order().length-1;
+    show('h-rev'+i+JSON.stringify(result(i)||0),`<div class="pg-panel">${storyCard(i)}${resultHtml(i)}</div>
+      <div class="pg-panel"><p class="q">Állás</p>${boardHtml(false)}<div class="ctrls"><button class="btn pri" id="pgnext">${last?'Végeredmény →':'Következő sztori →'}</button></div></div>`,()=>{$('pgnext').onclick=()=>next(i);});
+  } else if(ph==='end'){
+    show('h-end'+JSON.stringify(scores()),`<div class="pg-panel"><p class="res">Végeredmény</p>${boardHtml(true)}
+      <div class="ctrls"><button class="btn pri" id="pgagain">Új játék, ugyanez a csapat</button><button class="btn" id="pgclose">Szoba bezárása</button></div></div>`,()=>{
+        $('pgagain').onclick=again;
+        $('pgclose').onclick=()=>{if(confirm('Bezárod a szobát? Minden adat törlődik.')){store.del('pg:host');FB.remove(R());}};
+      });
+  }
+}
+async function start(){
+  const pl=ids().filter(p=>P()[p].story);
+  for(let k=pl.length-1;k>0;k--){const j=Math.random()*(k+1)|0;[pl[k],pl[j]]=[pl[j],pl[k]];}
+  autoRevealed=-1;
+  await FB.update(R(),{phase:'vote',round:0,order:pl,votes:null,results:null});
+}
+function reveal(i){const u={phase:'reveal'};u['results/'+i]=tallyRound(i);return FB.update(R(),u);}
+function next(i){return FB.update(R(),i+1<order().length?{phase:'vote',round:i+1}:{phase:'end'});}
+function again(){const u={phase:'lobby',round:null,order:null,votes:null,results:null};ids().forEach(p=>u['players/'+p+'/story']=null);autoRevealed=-1;return FB.update(R(),u);}
+
+/* ======== PLAYER ======== */
+const me=()=>store.get('pg:me:'+JOIN);
+let editing=false, pick=null, rate=0, revote=false;
+async function boot(){
+  document.documentElement.classList.add('joinmode');
+  if(!okUrl(dbUrl)){el.innerHTML='<p class="msg">A link hiányos: nincs benne az adatbázis címe. Olvasd be újra a QR-kódot.</p>';return;}
+  el.innerHTML='<p class="empty">Csatlakozás a szobához…</p>';
+  try{await connect();watch(JOIN);}catch(e){oops(e);}
+}
+function renderPlayer(){
+  if(!loaded) return;
+  if(!room){show('p-none','<p class="msg">Nincs ilyen szoba, vagy már bezárták. Olvasd be újra a QR-kódot.</p>');return;}
+  const id=me(), mine=id&&P()[id], ph=room.phase, i=room.round|0;
+  if(ph==='lobby'&&(!mine||!mine.story||editing)){
+    show('p-form',`<p class="q">Szoba: <em>${esc(code)}</em></p>
+      <div class="fld"><label for="pgname">A neved</label><input class="inp" id="pgname" maxlength="${NAME_MAX}" autocomplete="given-name" value="${esc(mine?mine.name:'')}"></div>
+      <div class="fld"><label for="pgtxt">A sztorid</label><textarea class="inp" id="pgtxt" rows="5" maxlength="${STORY_MAX}" placeholder="Pl.: Elaludt a saját szülinapi buliján, még a torta előtt.">${esc(mine&&mine.story||'')}</textarea>
+        <p class="small">Írj egy eseményt, ami a jelenlévők közül valakivel megtörtént, vagy simán kinézed belőle. A nevet ne írd bele, és ne áruld el senkinek, hogy ez a tiéd.</p></div>
+      <div class="ctrls"><button class="btn pri" id="pgsend">Beküldöm</button></div><p class="msg" id="pgmsg"></p>`,()=>{$('pgsend').onclick=sendStory;});
+    return;
+  }
+  if(!mine){show('p-late','<p class="msg">A játék már elindult. Ha a házigazda új játékot indít, te is beszállhatsz.</p>');return;}
+  if(ph==='lobby'){
+    show('p-wait',`<p class="res">Megvan, ${esc(mine.name)}!</p><p class="q">Várjuk a többieket.</p><ul class="pg-people" id="pgppl"></ul>
+      <div class="ctrls"><button class="btn" id="pgedit">Sztori szerkesztése</button></div>`,()=>{$('pgedit').onclick=()=>{editing=true;lastKey='';render();};});
+    live('pgppl',ids().map(p=>`<li class="${P()[p].story?'ok':''}"><span>${esc(P()[p].name)}${p===id?' (te)':''}</span><small>${P()[p].story?'kész ✓':'ír…'}</small></li>`).join(''));
+  } else if(ph==='vote'){
+    const mineV=votes(i)[id], author=order()[i]===id;
+    if(mineV&&!revote){
+      show('p-voted'+i,`${storyCard(i)}<p class="res">Szavazat leadva.</p><p class="q" id="pgprog"></p><div class="ctrls"><button class="btn" id="pgre">Módosítom</button></div>`,()=>{
+        $('pgre').onclick=()=>{revote=true;pick=mineV.who;rate=mineV.rate||0;lastKey='';render();};});
+      const V=votes(i); live('pgprog',`${ids().filter(p=>V[p]).length} / ${ids().length} szavazott`);
+      return;
+    }
+    const mark=()=>{
+      el.querySelectorAll('[data-w]').forEach(b=>b.classList.toggle('sel',b.dataset.w===pick));
+      el.querySelectorAll('[data-r]').forEach(b=>b.classList.toggle('sel',+b.dataset.r===rate));
+      $('pgvote').disabled=!(pick&&(author||rate));
+    };
+    show('p-vote'+i+ids().join(),`${storyCard(i)}
+      ${author?'<p class="pg-mine">Ez a te sztorid! Az izgalmára most nem szavazhatsz, de tippelj: kire szavaz majd a többség?</p>':''}
+      <p class="q">Ki lehetett?</p><div class="list pg-who" id="pgwho">${ids().map(p=>`<button class="opt" data-w="${p}">${esc(P()[p].name)}${p===id?' (te)':''}</button>`).join('')}</div>
+      ${author?'':`<p class="q">Mennyire volt izgalmas?</p><div class="pg-rate" id="pgrate">${[1,2,3,4,5,6,7,8,9,10].map(n=>`<button class="opt" data-r="${n}">${n}</button>`).join('')}</div>`}
+      <div class="ctrls"><button class="btn pri" id="pgvote" disabled>Szavazok</button></div>`,()=>{
+        $('pgwho').onclick=e=>{const b=e.target.closest('[data-w]'); if(b){pick=b.dataset.w;mark();}};
+        if($('pgrate')) $('pgrate').onclick=e=>{const b=e.target.closest('[data-r]'); if(b){rate=+b.dataset.r;mark();}};
+        $('pgvote').onclick=()=>{$('pgvote').disabled=true;FB.set(R('votes/'+i+'/'+id),{who:pick,rate:author?null:rate}).then(()=>{revote=false;pick=null;rate=0;lastKey='';render();}).catch(oops);};
+      });
+    if(pick&&!(pick in P())) pick=null;
+    mark();
+  } else if(ph==='reveal'){
+    revote=false;
+    show('p-rev'+i+JSON.stringify(result(i)||0),`${storyCard(i)}${resultHtml(i)}<p class="q">Állás</p>${boardHtml(false)}<p class="small">A következő sztorit a házigazda indítja.</p>`);
+  } else if(ph==='end'){
+    editing=false;
+    show('p-end'+JSON.stringify(scores()),`<p class="res">Végeredmény</p>${boardHtml(true)}<p class="small">Köszi a játékot! Ha a házigazda új játékot indít, itt folytathatod.</p>`);
+  }
+}
+async function sendStory(){
+  const name=$('pgname').value.trim().replace(/\s+/g,' ').slice(0,NAME_MAX), story=$('pgtxt').value.trim().slice(0,STORY_MAX), m=$('pgmsg');
+  if(!name){m.textContent='Add meg a neved.';return;}
+  if(story.length<5){m.textContent='Írj egy sztorit is (legalább pár szót).';return;}
+  let id=me(); if(!id){id=rid(10);store.set('pg:me:'+JOIN,id);}
+  if(ids().some(p=>p!==id&&P()[p].name.toLowerCase()===name.toLowerCase())){m.textContent='Ez a név már foglalt, válassz egy másikat (pl. tegyél mögé egy betűt).';return;}
+  $('pgsend').disabled=true; m.textContent='Küldés…';
+  const u={name,story}; if(!P()[id]) u.at=FB.serverTimestamp();
+  try{await FB.update(R('players/'+id),u);editing=false;lastKey='';render();}catch(e){oops(e);}
+}
+
+if(JOIN){code=JOIN;boot();} else intro();
+})();
+</script>
 
 </body></html>
